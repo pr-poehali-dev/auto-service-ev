@@ -16,57 +16,86 @@ export default function Index() {
     {
       id: 'tire',
       title: 'Шиномонтаж',
-      description: 'Сезонная переобувка, срочный шиномонтаж, хранение',
+      description: 'Сезонная переобувка, срочный шиномонтаж, хранение резины',
       icon: 'CircleDot',
       price: 'от 1500₽',
-      features: ['Гарантия 30 мин', 'Хранение шин', 'EV-совместимость']
+      features: ['Гарантия 30 мин', 'Бесплатное хранение', 'EV-совместимость'],
+      services: [
+        'Сезонная переобувка (онлайн-календарь)',
+        'Срочный шиномонтаж (гарантия 30 мин)',
+        'Шиномонтаж для электромобилей',
+        'Профессиональное хранение шин'
+      ]
     },
     {
       id: 'maintenance',
       title: 'Техобслуживание',
-      description: 'Плановое ТО, замена жидкостей, диагностика',
+      description: 'Плановое ТО, диагностика, замена жидкостей',
       icon: 'Settings',
       price: 'от 2900₽',
-      features: ['Пакеты ТО', 'Для всех типов авто', 'Видеоотчет']
+      features: ['Пакеты ТО', 'Для всех типов авто', 'Видеоотчет'],
+      services: [
+        'Пакеты ТО (Эконом/Стандарт/Премиум)',
+        'Замена масла и жидкостей',
+        'Диагностика систем авто',
+        'ТО для электромобилей'
+      ]
     },
     {
       id: 'repair',
       title: 'Ремонт',
-      description: 'Подвеска, тормоза, двигатель, электрика',
+      description: 'Подвеска, тормоза, двигатель, трансмиссия',
       icon: 'Wrench',
       price: 'от 3500₽',
-      features: ['Сертифицированные мастера', 'Гарантия на работы', 'Оригинальные запчасти']
+      features: ['Сертифицированные мастера', 'Гарантия на работы', 'Оригинальные запчасти'],
+      services: [
+        'Подвеска и рулевое управление',
+        'Тормозная система',
+        'Двигатель и трансмиссия',
+        'Электрика и кондиционер'
+      ]
     },
     {
-      id: 'ev',
-      title: 'Сервис EV',
-      description: 'Специализированный сервис электромобилей',
+      id: 'express',
+      title: 'Экспресс-услуги',
+      description: 'Быстрые услуги: замена ламп, АКБ, мелкий ремонт',
       icon: 'Zap',
-      price: 'от 4500₽',
-      features: ['Диагностика HV-системы', 'Обученные мастера', 'Спецоборудование']
+      price: 'от 500₽',
+      features: ['Быстро (до 30 мин)', 'Без записи', 'Честные цены'],
+      services: [
+        'Замена ламп и "дворников"',
+        'Замена аккумулятора',
+        'Мелкий кузовной ремонт',
+        'Антикоррозийная обработка'
+      ]
     }
   ];
 
   const advantages = [
     {
       icon: 'Clock',
-      title: 'Скорость',
-      description: 'Онлайн-запись 24/7, отслеживание статуса в реальном времени'
+      title: 'Скорость & Удобство',
+      description: 'Онлайн-запись 24/7, личный кабинет клиента, SMS/Telegram уведомления, гарантия времени на шиномонтаж'
     },
     {
       icon: 'Eye',
       title: 'Прозрачность',
-      description: 'Видео и фото отчеты, калькулятор цен, согласование работ'
+      description: 'Видео- и фотоотчеты о работах, онлайн-калькулятор с финальной ценой, предварительное согласование'
     },
     {
       icon: 'Award',
       title: 'Экспертность',
-      description: 'Сертифицированные мастера, современное оборудование'
+      description: 'Сертифицированные мастера по EV, современное оборудование, оригиналы и качественные аналоги'
+    },
+    {
+      icon: 'Car',
+      title: 'Комплексность',
+      description: 'Решение всех проблем авто в одном месте: шины + ТО + ремонт'
     },
     {
       icon: 'Shield',
       title: 'Гарантии',
-      description: 'Гарантия на все работы и запчасти с четкими сроками'
+      description: 'Гарантия на все работы и запчасти с четко указанными сроками'
     }
   ];
 
@@ -181,14 +210,16 @@ export default function Index() {
                       <SelectValue placeholder="Выберите марку" />
                     </SelectTrigger>
                     <SelectContent>
+                      <SelectItem value="lada">LADA</SelectItem>
                       <SelectItem value="toyota">Toyota</SelectItem>
                       <SelectItem value="volkswagen">Volkswagen</SelectItem>
-                      <SelectItem value="bmw">BMW</SelectItem>
-                      <SelectItem value="mercedes">Mercedes-Benz</SelectItem>
-                      <SelectItem value="tesla">Tesla</SelectItem>
                       <SelectItem value="hyundai">Hyundai</SelectItem>
                       <SelectItem value="kia">KIA</SelectItem>
-                      <SelectItem value="lada">LADA</SelectItem>
+                      <SelectItem value="bmw">BMW</SelectItem>
+                      <SelectItem value="mercedes">Mercedes-Benz</SelectItem>
+                      <SelectItem value="tesla">Tesla (EV)</SelectItem>
+                      <SelectItem value="byd">BYD (EV)</SelectItem>
+                      <SelectItem value="nio">NIO (EV)</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -204,7 +235,15 @@ export default function Index() {
                 <div className="bg-green-50 border border-green-200 rounded-lg p-4 text-center">
                   <p className="text-sm text-green-600 mb-1">Ориентировочная стоимость</p>
                   <p className="text-2xl font-bold text-green-800">{estimatedPrice.toLocaleString()}₽</p>
-                  <p className="text-sm text-green-600 mt-1">* Окончательная цена</p>
+                  <p className="text-sm text-green-600 mt-1">* Окончательная цена без доплат</p>
+                  <div className="mt-3 flex gap-2 justify-center">
+                    <Button size="sm" className="text-xs">
+                      Записаться по этой цене
+                    </Button>
+                    <Button variant="outline" size="sm" className="text-xs">
+                      Скачать расчет PDF
+                    </Button>
+                  </div>
                 </div>
               )}
             </CardContent>
@@ -246,10 +285,111 @@ export default function Index() {
                         </div>
                       ))}
                     </div>
+                    
+                    {/* Detailed services list */}
+                    <div className="mt-4 pt-3 border-t border-slate-200">
+                      <p className="text-xs font-medium text-slate-500 mb-2">Включает:</p>
+                      <div className="space-y-1">
+                        {service.services.map((subService, index) => (
+                          <div key={index} className="text-xs text-slate-500">
+                            • {subService}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
                   </div>
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Promo Section */}
+      <section className="py-20 bg-gradient-to-r from-primary/5 to-orange-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Актуальные акции</h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Специальные предложения на популярные услуги
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {/* Winter Promo */}
+            <Card className="border-2 border-orange-200 bg-white shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-orange-500 to-red-500 text-white">
+                <div className="flex items-center justify-between">
+                  <Badge className="bg-white/20 text-white">❄️ Зима 2025</Badge>
+                  <span className="text-sm font-bold">-20%</span>
+                </div>
+                <CardTitle className="text-white">Зимний комплекс</CardTitle>
+                <CardDescription className="text-orange-100">
+                  Переобувка + Хранение + Диагностика подвески
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-slate-900 mb-2">7990₽</p>
+                  <p className="text-sm text-slate-500 mb-4">вместо 9990₽</p>
+                  <Button className="w-full">Записаться на акцию</Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* EV Promo */}
+            <Card className="border-2 border-blue-200 bg-white shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
+                <div className="flex items-center justify-between">
+                  <Badge className="bg-white/20 text-white">⚡ EV Сервис</Badge>
+                  <span className="text-sm font-bold">Новинка</span>
+                </div>
+                <CardTitle className="text-white">ТО для электромобилей</CardTitle>
+                <CardDescription className="text-blue-100">
+                  Диагностика HV + Замена фильтра + Обработка
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-slate-900 mb-2">14990₽</p>
+                  <p className="text-sm text-slate-500 mb-4">Стандартный пакет</p>
+                  <Button className="w-full">Узнать подробнее</Button>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Express Oil Change */}
+            <Card className="border-2 border-green-200 bg-white shadow-lg">
+              <CardHeader className="bg-gradient-to-r from-green-500 to-emerald-500 text-white">
+                <div className="flex items-center justify-between">
+                  <Badge className="bg-white/20 text-white">🚀 Экспресс</Badge>
+                  <span className="text-sm font-bold">30 мин</span>
+                </div>
+                <CardTitle className="text-white">Замена масла + диагностика</CardTitle>
+                <CardDescription className="text-green-100">
+                  Быстро, качественно, с гарантией
+                </CardDescription>
+              </CardHeader>
+              <CardContent className="pt-4">
+                <div className="text-center">
+                  <p className="text-3xl font-bold text-slate-900 mb-2">1990₽</p>
+                  <p className="text-sm text-slate-500 mb-4">Все включено</p>
+                  <Button className="w-full">Записаться сейчас</Button>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Additional Promo Banner */}
+          <div className="mt-12 bg-gradient-to-r from-slate-900 to-slate-700 rounded-2xl p-8 text-white text-center">
+            <h3 className="text-2xl font-bold mb-4">Комплекс "Подвеска": Скидка 10%</h3>
+            <p className="text-xl mb-6">Диагностика + Замена 2х амортизаторов + Сход-развал</p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <Button size="lg" className="bg-white text-slate-900 hover:bg-gray-100">
+                Рассчитать стоимость
+              </Button>
+              <span className="text-lg font-semibold">Цена по запросу</span>
+            </div>
           </div>
         </div>
       </section>
@@ -264,16 +404,154 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             {advantages.map((advantage, index) => (
               <div key={index} className="text-center group">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-primary/20 transition-colors">
                   <Icon name={advantage.icon as any} size={28} className="text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">{advantage.title}</h3>
-                <p className="text-slate-600 leading-relaxed">{advantage.description}</p>
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">{advantage.title}</h3>
+                <p className="text-slate-600 leading-relaxed text-sm">{advantage.description}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Blog/Articles Section */}
+      <section className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Полезные статьи</h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Экспертные советы по обслуживанию автомобилей
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <Badge className="w-fit mb-2">🔋 Электромобили</Badge>
+                <CardTitle className="text-lg">Как подготовить EV к зиме</CardTitle>
+                <CardDescription>
+                  Особенности шин и подвески электромобилей в холодное время года
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <Icon name="Calendar" size={16} />
+                  15 янв 2025
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <Badge className="w-fit mb-2">🔧 Диагностика</Badge>
+                <CardTitle className="text-lg">5 признаков износа подвески</CardTitle>
+                <CardDescription>
+                  Диагностируйте проблемы вовремя и избегайте дорогого ремонта
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <Icon name="Calendar" size={16} />
+                  10 янв 2025
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow cursor-pointer">
+              <CardHeader>
+                <Badge className="w-fit mb-2">⚙️ ТО</Badge>
+                <CardTitle className="text-lg">Выбираем масло для двигателя</CardTitle>
+                <CardDescription>
+                  Полное руководство по выбору моторного масла в 2025 году
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="flex items-center gap-2 text-sm text-slate-500">
+                  <Icon name="Calendar" size={16} />
+                  5 янв 2025
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="text-center mt-8">
+            <Button variant="outline" size="lg">
+              Все статьи
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-slate-900 mb-4">Частые вопросы</h2>
+            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+              Ответы на популярные вопросы о наших услугах
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Icon name="HelpCircle" size={20} className="text-primary" />
+                  Сколько времени займет шиномонтаж?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  Стандартная переобувка занимает 30-40 минут. На срочный шиномонтаж даем гарантию 30 минут или скидка 50%.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Icon name="HelpCircle" size={20} className="text-primary" />
+                  Работаете ли вы с электромобилями?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  Да! У нас есть специально обученные мастера и оборудование для диагностики высоковольтных систем Tesla, BYD, NIO и других EV.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Icon name="HelpCircle" size={20} className="text-primary" />
+                  Какие гарантии вы предоставляете?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  Гарантия на работы: от 3 до 12 месяцев в зависимости от вида услуг. На запчасти: гарантия производителя. Все условия четко прописаны в договоре.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg flex items-center gap-2">
+                  <Icon name="HelpCircle" size={20} className="text-primary" />
+                  Можно ли записаться онлайн?
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-slate-600">
+                  Конечно! Онлайн-запись работает 24/7. Выберите удобное время, и мы пришлем подтверждение и напоминание в Telegram или SMS.
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
